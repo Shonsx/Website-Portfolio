@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* NAVIGATION */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: start;
+  font-family: "Poppins";
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  position: relative;
+  margin-right: 30px;
+}
+
+nav a:after {
+  content: "";
+  position: absolute;
+  background-color: rgb(14, 93, 196);
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -3px;
+  transition: all 0.5s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: rgb(67, 67, 239);
+}
+
+nav a.active {
+  color: rgb(67, 67, 239);
+}
+
+nav a.active::after {
+  width: 100%;
+}
+
+/* SECTIONS */
+section {
+  height: 100vh;
+  font-size: 40px;
+  padding-top: 70px;
+}
+
+/* HOME SECTION */
+#home {
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+}
+
+.home-text h1 {
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.home-text h2 {
+  font-size: 40px;
+}
+
+.home-text h3 {
+  font-size: 30px;
+  color: red;
+}
+
+.home-tagline {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #1e293b;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.profile_pic {
+  border: 4px solid black;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.profile_pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.typing-word {
+  display: inline;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.typed-cursor {
+  display: inline;
+  color: red;
+  font-weight: 600;
+}
+
+/* ABOUT SECTION */
