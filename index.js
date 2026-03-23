@@ -47,7 +47,6 @@ var typed = new Typed(".typing-word", {
     "Creative Thinker",
     "Code Lover",
     "Lifelong Learner",
-    "STI Calamba Computer Science Student",
   ],
   typeSpeed: 50,
   backSpeed: 20,
