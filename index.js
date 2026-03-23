@@ -1,3 +1,4 @@
+// ===== NAVBAR ACTIVE LINK ON SCROLL =====
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
 
@@ -6,7 +7,6 @@ window.addEventListener("scroll", () => {
 
   sections.forEach((section) => {
     const sectionTop = section.offsetTop - 100;
-    const sectionHeight = section.clientHeight;
 
     if (scrollY >= sectionTop) {
       current = section.getAttribute("id");
@@ -22,7 +22,8 @@ window.addEventListener("scroll", () => {
   });
 });
 
-const observer = new IntersectionObserver(
+// ===== UPDATE URL HASH ON SCROLL =====
+const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -36,9 +37,10 @@ const observer = new IntersectionObserver(
 );
 
 sections.forEach((section) => {
-  observer.observe(section);
+  sectionObserver.observe(section);
 });
 
+// ===== TYPING EFFECT =====
 var typed = new Typed(".typing-word", {
   strings: [
     "Web Developer",
@@ -50,7 +52,50 @@ var typed = new Typed(".typing-word", {
   ],
   typeSpeed: 50,
   backSpeed: 20,
-  typeDelay: 2000,
+  backDelay: 2000,
   startDelay: 500,
   loop: true,
 });
+
+// ===== TIMELINE SCROLL ANIMATION =====
+const timelineItems = document.querySelectorAll(".section-container");
+
+const timelineObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = `${index * 0.2}s`;
+        entry.target.classList.add("show");
+      } else {
+        entry.target.classList.remove("show");
+        entry.target.style.transitionDelay = "0s"; // reset delay
+      }
+    });
+  },
+  {
+    threshold: 0.2,
+  },
+);
+
+timelineItems.forEach((item) => {
+  timelineObserver.observe(item);
+});
+
+const timeline = document.querySelector(".timeline");
+
+const lineObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        timeline.classList.add("show-line");
+      } else {
+        timeline.classList.remove("show-line"); // resets when scrolling up
+      }
+    });
+  },
+  {
+    threshold: 0.3,
+  },
+);
+
+lineObserver.observe(timeline);
